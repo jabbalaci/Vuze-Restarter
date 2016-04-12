@@ -25,3 +25,9 @@ Generalization
 --------------
 Of course, you can replace vuze with something else and the monitoring
 script will keep restarting that program.
+
+Info
+----
+* Author: Laszlo Szathmary, alias Jabba Laci (2016)
+* Email: <jabba.laci@gmail.com>
+* Blog post: <https://ubuntuincident.wordpress.com/2016/04/12/vuze-crashes-after-some-time/>
