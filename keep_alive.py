@@ -38,6 +38,19 @@ def is_process_running(name):
                 return True
         #
         return False
+        
+
+def kill_process(name):
+    """
+    Kill the process with the specified name.
+    """
+    for p in psutil.process_iter():
+        cmd = " ".join(p.cmdline())
+        if ('java' in cmd) and (name in cmd):
+            log.info(cmd)
+            log.info(p.pid)
+            p.kill()
+            break
 
 
 def main():
@@ -51,6 +64,7 @@ def main():
                 os.system("./start_vuze.sh")
                 sleep(10)
         except KeyboardInterrupt:
+            kill_process(PROCESS_NAME)
             log.info("interrupted by the user")
             break
     #
