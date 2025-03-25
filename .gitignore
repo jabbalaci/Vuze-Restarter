@@ -63,3 +63,4 @@ target/
 
 # Jabba Laci
 tags
+.venv

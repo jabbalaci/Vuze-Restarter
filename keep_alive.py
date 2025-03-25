@@ -1,5 +1,4 @@
 #!/usr/bin/env python3
-# encoding: utf-8
 
 """
 keep a specified program alive, i.e. restart it if it dies
@@ -12,7 +11,7 @@ import psutil
 
 import mylogging as log
 
-PROCESS_NAME = 'vuze'
+PROCESS_NAME = "vuze"
 WAIT = 5
 
 
@@ -23,7 +22,7 @@ def is_process_running(name):
     The proc object is cached so it doesn't need to be looked up every time.
     """
     if not hasattr(is_process_running, "proc"):
-        is_process_running.proc = None    # it doesn't exist yet, so init it
+        is_process_running.proc = None  # it doesn't exist yet, so init it
 
     if is_process_running.proc:
         if is_process_running.proc.is_running():
@@ -38,7 +37,7 @@ def is_process_running(name):
                 return True
         #
         return False
-        
+
 
 def kill_process(name):
     """
@@ -46,7 +45,7 @@ def kill_process(name):
     """
     for p in psutil.process_iter():
         cmd = " ".join(p.cmdline())
-        if ('java' in cmd) and (name in cmd):
+        if ("java" in cmd) and (name in cmd):
             log.info(cmd)
             log.info(p.pid)
             p.kill()
@@ -70,7 +69,8 @@ def main():
     #
     print()
 
+
 ##############################################################################
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()
